@@ -4,3 +4,4 @@ example/*
 **/babel.config.cjs
 **/.eslintrc.cjs
 **/dist
+**/jest.setup.js

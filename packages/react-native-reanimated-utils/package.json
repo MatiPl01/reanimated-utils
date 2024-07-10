@@ -23,6 +23,7 @@
     "react": "^18.3.1",
     "react-native": "^0.74.3",
     "react-native-builder-bob": "^0.23.2",
+    "react-native-reanimated": "^3.14.0",
     "react-test-renderer": "^18.3.1",
     "semantic-release": "^24.0.0",
     "typescript": "5.3.3"
@@ -55,10 +56,10 @@
   "scripts": {
     "build": "yarn clean && bob build",
     "clean": "../../scripts/clean.sh",
-    "test": "jest",
-    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "postpack": "rm ./README.md",
     "prepack": "cp ../../README.md ./README.md",
-    "postpack": "rm ./README.md"
+    "test": "jest",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "types": "dist/typescript/index.d.ts"
 }

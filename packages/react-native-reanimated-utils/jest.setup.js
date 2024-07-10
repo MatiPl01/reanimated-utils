@@ -1,1 +1,1 @@
-// TODO - add your jest setup code here (e.g. library mocks)
+require('react-native-reanimated').setUpTests();
