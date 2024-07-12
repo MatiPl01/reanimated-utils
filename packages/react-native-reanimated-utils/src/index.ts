@@ -1,3 +1,3 @@
 export * from './hooks';
-export * from './types/public';
+export type { Animatable } from './types';
 export * from './utils';
