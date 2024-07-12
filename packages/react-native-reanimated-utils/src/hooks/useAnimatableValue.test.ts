@@ -10,7 +10,7 @@ describe(useAnimatableValue, () => {
     { text: 'shared value', value: (v: number) => makeMutable(v) }
   ];
 
-  describe.each(cases)('with %s', ({ value }) => {
+  describe.each(cases)('with $text', ({ value }) => {
     it('returns a shared value', () => {
       const { result } = renderHook(() => useAnimatableValue(value(42)));
 

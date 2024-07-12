@@ -1,11 +1,5 @@
-import { SafeAreaView, StyleSheet } from 'react-native';
+import AnimatedIntervalExample from './examples/AnimatedInterval';
 
 export default function App() {
-  return <SafeAreaView style={styles.container}></SafeAreaView>;
+  return <AnimatedIntervalExample />;
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  }
-});
