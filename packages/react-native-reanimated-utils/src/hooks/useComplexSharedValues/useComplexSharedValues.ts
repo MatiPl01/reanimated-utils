@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable no-redeclare */
 
-import type { IsInfiniteArray, IsInfiniteObject } from '../../types';
+import type { IsInfiniteArray, IsInfiniteObject, Simplify } from '../../types';
 import type {
   ArrayMethods,
   ComplexSharedValuesCurrentType,
@@ -59,24 +59,23 @@ type MethodType<V> =
       ? RecordMethods<V>
       : SingletonMethods<V>;
 
+type ComplexSharedValuesReturnType<V> = Simplify<
+  {
+    current: ComplexSharedValuesCurrentType<V>;
+  } & MethodType<ComplexSharedValuesCurrentType<V>>
+>;
+
 // Function overloads
-export function useComplexSharedValues<V>(schema: SchemaFactory<V>): {
-  current: ComplexSharedValuesCurrentType<V>;
-  methods: MethodType<ComplexSharedValuesCurrentType<V>>;
-};
+export function useComplexSharedValues<V>(
+  schema: SchemaFactory<V>
+): ComplexSharedValuesReturnType<V>;
 
 export function useComplexSharedValues<V>(
   schema: ComplexSharedValuesSchema<V>
-): {
-  current: ComplexSharedValuesCurrentType<V>;
-  methods: MethodType<ComplexSharedValuesCurrentType<V>>;
-};
+): ComplexSharedValuesReturnType<V>;
 
 export function useComplexSharedValues<V>(
   schema: ComplexSharedValuesSchema<V> | SchemaFactory<V>
-): {
-  current: ComplexSharedValuesCurrentType<V>;
-  methods: MethodType<ComplexSharedValuesCurrentType<V>>;
-} {
+): ComplexSharedValuesReturnType<V> {
   // TODO - implement
 }

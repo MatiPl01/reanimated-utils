@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable camelcase */
 /* eslint-disable import/no-unused-modules */
 import { type SharedValue } from 'react-native-reanimated';
 import {
@@ -63,12 +65,30 @@ export default function ComplexSharedValues() {
   );
   const test7 = useComplexSharedValues(mutable(tuple(0, 1)));
 
+  const test6_set_1 = test6.set(4, [
+    { a: 1, b: 2, c: 3, d: 4 },
+    { a: [0, 1] },
+    { a: 0, b: 1, c: '2' }
+  ]);
+
   // Alternative syntax (record)
   // all return: Record<string, SharedValue<number>>
   const test_1_1 = useComplexSharedValues(() => ({ $key: mutable(0) }));
   const test_1_2 = useComplexSharedValues(() => record(mutable(0)));
   const test_1_3 = useComplexSharedValues({ $key: mutable(0) });
   const test_1_4 = useComplexSharedValues(record(mutable(0)));
+
+  const test_1_1_current = test_1_1.current;
+  const test_1_1_get_1 = test_1_1.get('key1');
+  const test_1_1_get_2 = test_1_1.get('key1', true);
+  const test_1_1_set_1 = test_1_1.set('key1', 1);
+  const test_1_1_set_2 = test_1_1.set(['key1', 'key2'], 1);
+  const test_1_1_push = test_1_1.has('key1');
+  const test_1_1_clear = test_1_1.clear();
+  const test_1_1_remove_1 = test_1_1.remove('key1');
+  const test_1_1_remove_2 = test_1_1.remove('key1', 'key2');
+  const test_1_1_reset_1 = test_1_1.reset('key1');
+  const test_1_1_reset_2 = test_1_1.reset('key1', 'key2');
 
   // Alternative syntax (array)
   // all return: SharedValue<number>[]

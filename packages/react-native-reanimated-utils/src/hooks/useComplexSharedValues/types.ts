@@ -5,8 +5,10 @@ import type { SharedValue } from 'react-native-reanimated';
 import type {
   AnyFunction,
   AreSameType,
+  DeepPartial,
   IsInfiniteArray,
-  IsInfiniteObject
+  IsInfiniteObject,
+  NonEmptyArray
 } from '../../types';
 
 export enum SchemaType {
@@ -116,6 +118,13 @@ type ConvertToSharedValue<T> = T extends
                 : { [K in keyof T]: ConvertToSharedValue<T[K]> }
               : T;
 
+type ReplaceSharedValues<T> =
+  T extends SharedValue<infer U>
+    ? U
+    : T extends object
+      ? { [K in keyof T]: ReplaceSharedValues<T[K]> }
+      : T;
+
 export type ComplexSharedValuesSchema<V> = ConvertToSchema<V>;
 
 export type ComplexSharedValuesCurrentType<V> =
@@ -125,14 +134,71 @@ export type ComplexSharedValuesCurrentType<V> =
       ? ConvertToSharedValue<ReturnType<V>>
       : ConvertToSharedValue<V>;
 
+type ExtractValueType<T> =
+  T extends Array<any>
+    ? IsInfiniteArray<T> extends true
+      ? T[number]
+      : T
+    : T extends Record<string, any>
+      ? IsInfiniteObject<T> extends true
+        ? T[keyof T]
+        : T
+      : T;
+
+// Convert to shared value first as V is assigned the schema type if not explicit type is provided
+type Patch<V> = DeepPartial<ReplaceSharedValues<ComplexValue<V>>>;
+
+type ComplexValue<V> = ExtractValueType<ComplexSharedValuesCurrentType<V>>;
+
 export type ArrayMethods<V> = {
-  // TODO
+  get(index: string, fallbackToDefault: true): ComplexValue<V>;
+  get(index: string, fallbackToDefault?: boolean): ComplexValue<V> | undefined;
+
+  set(index: number, value?: Patch<V>, patch?: boolean): ComplexValue<V>;
+
+  push(value?: Patch<V>): ComplexValue<V>;
+  push(count: number, value?: Patch<V>): Array<ComplexValue<V>>;
+
+  unshift(value?: Patch<V>): ComplexValue<V>;
+  unshift(count: number, value?: Patch<V>): Array<ComplexValue<V>>;
+
+  pop(): ComplexValue<V>;
+
+  slice(start: number, end?: number): Array<ComplexValue<V>>;
+
+  splice(start: number, end?: number): Array<ComplexValue<V>>;
+
+  clear(): void;
 };
 
 export type RecordMethods<V> = {
-  // TODO
+  get(key: string, fallbackToDefault: true): ComplexValue<V>;
+  get(key: string, fallbackToDefault?: boolean): ComplexValue<V> | undefined;
+
+  set(key: string, value?: Patch<V>, patch?: boolean): ComplexValue<V>;
+  set<K extends string>(
+    keys: NonEmptyArray<K>,
+    value?: Patch<V>,
+    patch?: boolean
+  ): Record<K, ComplexValue<V>>;
+
+  has(key: string): boolean;
+
+  clear(): void;
+
+  remove(key: string): ComplexValue<V>;
+  remove<K extends string>(
+    ...keys: NonEmptyArray<K>
+  ): Record<K, ComplexValue<V>>;
+
+  reset(key: string): ComplexValue<V>;
+  reset<K extends string>(
+    ...keys: NonEmptyArray<K>
+  ): Record<K, ComplexValue<V>>;
 };
 
 export type SingletonMethods<V> = {
-  // TODO
+  reset(): ComplexValue<V>;
+
+  update(value: Patch<V>, patch?: boolean): ComplexValue<V>;
 };
