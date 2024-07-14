@@ -224,8 +224,8 @@ type ComplexValue<V> = ExtractValueType<ComplexSharedValuesCurrentType<V>>;
 export type ArrayMethods<V> = {
   set(index: number, value?: Patch<V>, patch?: boolean): ComplexValue<V>;
 
-  get(index: string, fallbackToDefault: true): ComplexValue<V>;
-  get(index: string, fallbackToDefault?: boolean): ComplexValue<V> | undefined;
+  get(index: number, fallbackToDefault: true): ComplexValue<V>;
+  get(index: number, fallbackToDefault?: boolean): ComplexValue<V> | undefined;
 
   push(value?: Patch<V>): ComplexValue<V>;
   push(count: number, value?: Patch<V>): Array<ComplexValue<V>>;
@@ -233,13 +233,19 @@ export type ArrayMethods<V> = {
   unshift(value?: Patch<V>): ComplexValue<V>;
   unshift(count: number, value?: Patch<V>): Array<ComplexValue<V>>;
 
-  pop(): ComplexValue<V>;
+  pop(): ComplexValue<V> | undefined;
 
   slice(start: number, end?: number): Array<ComplexValue<V>>;
 
   splice(start: number, end?: number): Array<ComplexValue<V>>;
 
   clear(): void;
+
+  remove(index: number): ComplexValue<V> | undefined;
+  remove(...indexes: NonEmptyArray<number>): Array<ComplexValue<V>>;
+
+  reset(index: number): ComplexValue<V>;
+  reset(...indexes: NonEmptyArray<number>): Array<ComplexValue<V>>;
 };
 
 export type RecordMethods<V> = {
@@ -257,7 +263,7 @@ export type RecordMethods<V> = {
 
   clear(): void;
 
-  remove(key: string): ComplexValue<V>;
+  remove(key: string): ComplexValue<V> | undefined;
   remove<K extends string>(
     ...keys: NonEmptyArray<K>
   ): Record<K, ComplexValue<V>>;

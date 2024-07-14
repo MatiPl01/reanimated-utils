@@ -67,7 +67,7 @@ export function useComplexSharedValuesRecord<V>(
   const get = useCallback(
     (key: string, fallbackToDefault = false) => {
       'worklet';
-      if (current[key] === undefined && fallbackToDefault) {
+      if (fallbackToDefault && current[key] === undefined) {
         return setSingle(key);
       }
       return current[key];
@@ -96,14 +96,14 @@ export function useComplexSharedValuesRecord<V>(
 
   const clear = useCallback(() => {
     'worklet';
-    return remove(...Object.keys(current));
+    remove(...Object.keys(current));
   }, [current, remove]);
 
   const reset = useCallback(
     (...keys: Array<string>) => {
       'worklet';
       if (keys.length === 1) {
-        return setSingle(keys[0]!);
+        return setSingle(keys[0]!, undefined, false);
       }
       return Object.fromEntries(
         keys.map(key => [key, setSingle(key, undefined, false)])
