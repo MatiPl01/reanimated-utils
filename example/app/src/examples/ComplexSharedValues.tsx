@@ -103,6 +103,10 @@ export default function ComplexSharedValues() {
   const test_3_2 = useComplexSharedValues(() => object({ a: mutable(0) }));
   const test_3_3 = useComplexSharedValues({ a: mutable(0) });
   const test_3_4 = useComplexSharedValues(object({ a: mutable(0) }));
+  // Useful if $key must not be considered as a record key wildcard
+  // and instead be treated as a regular key
+  const test_3_5 = useComplexSharedValues(() => ({ $key: mutable(0) })); // record
+  const test_3_6 = useComplexSharedValues(() => object({ $key: mutable(0) })); // object
 
   // Explicit tuple syntax (tuple call is required)
   // all return: [SharedValue<number>, SharedValue<string>]

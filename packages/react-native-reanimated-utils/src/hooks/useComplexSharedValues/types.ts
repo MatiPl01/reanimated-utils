@@ -8,7 +8,9 @@ import type {
   DeepPartial,
   IsInfiniteArray,
   IsInfiniteObject,
-  NonEmptyArray
+  NonEmptyArray,
+  Primitive,
+  Simplify
 } from '../../types';
 
 export enum SchemaType {
@@ -43,6 +45,61 @@ export type SchemaObject<V> = {
   __type: SchemaType.Object;
   defaultValue: V;
 };
+
+// for same reason I have to explicitly use types from above in order not
+// to get circular reference ts error
+type SchemaValueBase =
+  // record
+  | {
+      __type: SchemaType.Record;
+      defaultValue: SchemaValueBase;
+    }
+  // arrays
+  | (
+      | [SchemaValueBase]
+      | {
+          __type: SchemaType.Array;
+          defaultValue: SchemaValueBase;
+        }
+    )
+  // objects
+  | (
+      | { [key: string]: SchemaValueBase }
+      | SchemaObject<{ [key: string]: SchemaValueBase }>
+    )
+  | Primitive
+  // tuple
+  | SchemaTuple<{ [key: number]: SchemaValueBase }>;
+
+type SchemaValue =
+  // record
+  | {
+      __type: SchemaType.Record;
+      defaultValue: SchemaValue;
+    }
+  // arrays
+  | (
+      | [SchemaValue]
+      | {
+          __type: SchemaType.Array;
+          defaultValue: SchemaValue;
+        }
+    )
+  // objects
+  | (
+      | { [key: string]: SchemaValue }
+      | SchemaObject<{ [key: string]: SchemaValue }>
+    )
+  | Primitive
+  // mutable (can only contain non-mutable types)
+  | SchemaMutable<SchemaValueBase>
+  // tuple
+  | SchemaTuple<{ [key: number]: SchemaValue }>;
+
+export type ArraySchema = [SchemaValue] | SchemaArray<SchemaValue>;
+export type RecordSchema = { $key: SchemaValue } | SchemaRecord<SchemaValue>;
+export type SingletonSchema = SchemaValue;
+export type AnySchema = SchemaValue;
 
 type ConvertToSchemaOutsideMutable<T> =
   T extends SchemaTuple<infer U>
@@ -134,6 +191,20 @@ export type ComplexSharedValuesCurrentType<V> =
       ? ConvertToSharedValue<ReturnType<V>>
       : ConvertToSharedValue<V>;
 
+// Determine method type based on whether the type is an infinite array or object
+type MethodType<V> =
+  IsInfiniteArray<V> extends true
+    ? ArrayMethods<V>
+    : IsInfiniteObject<V> extends true
+      ? RecordMethods<V>
+      : SingletonMethods<V>;
+
+export type ComplexSharedValuesReturnType<V> = Simplify<
+  {
+    current: ComplexSharedValuesCurrentType<V>;
+  } & MethodType<ComplexSharedValuesCurrentType<V>>
+>;
+
 type ExtractValueType<T> =
   T extends Array<any>
     ? IsInfiniteArray<T> extends true
@@ -146,15 +217,15 @@ type ExtractValueType<T> =
       : T;
 
 // Convert to shared value first as V is assigned the schema type if not explicit type is provided
-type Patch<V> = DeepPartial<ReplaceSharedValues<ComplexValue<V>>>;
+export type Patch<V> = DeepPartial<ReplaceSharedValues<ComplexValue<V>>>;
 
 type ComplexValue<V> = ExtractValueType<ComplexSharedValuesCurrentType<V>>;
 
 export type ArrayMethods<V> = {
+  set(index: number, value?: Patch<V>, patch?: boolean): ComplexValue<V>;
+
   get(index: string, fallbackToDefault: true): ComplexValue<V>;
   get(index: string, fallbackToDefault?: boolean): ComplexValue<V> | undefined;
-
-  set(index: number, value?: Patch<V>, patch?: boolean): ComplexValue<V>;
 
   push(value?: Patch<V>): ComplexValue<V>;
   push(count: number, value?: Patch<V>): Array<ComplexValue<V>>;
@@ -172,15 +243,15 @@ export type ArrayMethods<V> = {
 };
 
 export type RecordMethods<V> = {
-  get(key: string, fallbackToDefault: true): ComplexValue<V>;
-  get(key: string, fallbackToDefault?: boolean): ComplexValue<V> | undefined;
-
   set(key: string, value?: Patch<V>, patch?: boolean): ComplexValue<V>;
   set<K extends string>(
     keys: NonEmptyArray<K>,
     value?: Patch<V>,
     patch?: boolean
   ): Record<K, ComplexValue<V>>;
+
+  get(key: string, fallbackToDefault: true): ComplexValue<V>;
+  get(key: string, fallbackToDefault?: boolean): ComplexValue<V> | undefined;
 
   has(key: string): boolean;
 

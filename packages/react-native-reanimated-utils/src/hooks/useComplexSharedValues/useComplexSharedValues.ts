@@ -1,69 +1,23 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable no-redeclare */
 
-import type { IsInfiniteArray, IsInfiniteObject, Simplify } from '../../types';
+import { isEqual } from 'lodash-es';
+import { useRef } from 'react';
+
 import type {
-  ArrayMethods,
-  ComplexSharedValuesCurrentType,
+  ComplexSharedValuesReturnType,
   ComplexSharedValuesSchema,
-  RecordMethods,
-  SchemaArray,
-  SchemaMutable,
-  SchemaObject,
-  SchemaRecord,
-  SchemaTuple,
-  SingletonMethods
+  SingletonSchema
 } from './types';
-import { SchemaType } from './types';
-
-export const mutable = <V>(defaultValue: V): SchemaMutable<V> => ({
-  __type: SchemaType.Mutable,
-  defaultValue
-});
-
-export const tuple = <V extends Array<any>>(
-  ...defaultValue: V
-): SchemaTuple<V> => ({
-  __type: SchemaType.Tuple,
-  defaultValue
-});
-
-export const array = <V>(defaultValue: V): SchemaArray<V> => ({
-  __type: SchemaType.Array,
-  defaultValue
-});
-
-export const record = <V>(defaultValue: V): SchemaRecord<V> => ({
-  __type: SchemaType.Record,
-  defaultValue
-});
-
-export const object = <V>(defaultValue: V): SchemaObject<V> => ({
-  __type: SchemaType.Object,
-  defaultValue
-});
-
-type SchemaFactory<V> = (args: {
-  mutable: typeof mutable;
-  tuple: typeof tuple;
-  array: typeof array;
-  record: typeof record;
-  object: typeof object;
-}) => ComplexSharedValuesSchema<V>;
-
-// Determine method type based on whether the type is an infinite array or object
-type MethodType<V> =
-  IsInfiniteArray<V> extends true
-    ? ArrayMethods<V>
-    : IsInfiniteObject<V> extends true
-      ? RecordMethods<V>
-      : SingletonMethods<V>;
-
-type ComplexSharedValuesReturnType<V> = Simplify<
-  {
-    current: ComplexSharedValuesCurrentType<V>;
-  } & MethodType<ComplexSharedValuesCurrentType<V>>
->;
+import { useComplexSharedValuesArray } from './useComplexSharedValuesArray';
+import { useComplexSharedValuesRecord } from './useComplexSharedValuesRecord';
+import { useComplexSharedValuesSingleton } from './useComplexSharedValuesSingleton';
+import {
+  evaluateSchema,
+  isArraySchema,
+  isRecordSchema,
+  type SchemaFactory
+} from './utils';
 
 // Function overloads
 export function useComplexSharedValues<V>(
@@ -77,5 +31,31 @@ export function useComplexSharedValues<V>(
 export function useComplexSharedValues<V>(
   schema: ComplexSharedValuesSchema<V> | SchemaFactory<V>
 ): ComplexSharedValuesReturnType<V> {
-  // TODO - implement
+  const schemaRef = useRef<ComplexSharedValuesSchema<V>>();
+
+  if (schema !== schemaRef.current) {
+    const newSchema = evaluateSchema(schema);
+    if (schemaRef.current === undefined) {
+      schemaRef.current = newSchema;
+    } else if (!isEqual(schemaRef.current, newSchema)) {
+      throw new Error(
+        '[react-native-reanimated-utils] Changing schema on the fly is not supported'
+      );
+    }
+  }
+
+  const currentSchema = schemaRef.current;
+
+  // TODO - add schema validation via JS (not only TS types validation)
+  if (currentSchema === undefined) {
+    throw new Error('[react-native-reanimated-utils] Invalid schema provided');
+  }
+
+  if (isArraySchema(currentSchema)) {
+    return useComplexSharedValuesArray(currentSchema);
+  }
+  if (isRecordSchema(currentSchema)) {
+    return useComplexSharedValuesRecord(currentSchema);
+  }
+  return useComplexSharedValuesSingleton(currentSchema as SingletonSchema);
 }
