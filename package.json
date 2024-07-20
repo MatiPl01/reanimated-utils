@@ -1,0 +1,54 @@
+{
+  "name": "react-native-reanimated-utils-monorepo",
+  "version": "1.0.0",
+  "devDependencies": {
+    "@types/eslint": "^8.56.10",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.14.9",
+    "eslint": "^8.57.0",
+    "eslint-config-react-native-matipl01": "2.1.0",
+    "get-yarn-workspaces": "^1.0.2",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.7",
+    "prettier": "^3.3.2",
+    "syncpack": "^12.3.3",
+    "ts-jest": "^29.1.5",
+    "ts-node": "^10.9.2",
+    "typescript": "5.3.3"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write . --ignore-unknown",
+      "eslint --fix ."
+    ],
+    "package.json": [
+      "syncpack format"
+    ]
+  },
+  "packageManager": "yarn@4.3.1",
+  "private": true,
+  "scripts": {
+    "build": "yarn workspace react-native-reanimated-utils build",
+    "clean": "yarn workspace react-native-reanimated-utils clean",
+    "example:app": "yarn workspace example-app",
+    "example:bare": "yarn workspace example-bare",
+    "example:expo": "yarn workspace example-expo",
+    "format": "yarn format:code && yarn format:deps",
+    "format:check": "prettier --check . --ignore-unknown",
+    "format:code": "prettier --write . --ignore-unknown",
+    "format:deps": "syncpack format",
+    "husky:install": "./scripts/husky.sh",
+    "lib": "yarn workspace react-native-reanimated-utils",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix . ",
+    "postinstall": "yarn husky:install",
+    "prepare": "husky",
+    "test": "yarn lib test && yarn example:app test",
+    "typecheck": "yarn lib typecheck && yarn example:app typecheck"
+  },
+  "type": "module",
+  "workspaces": [
+    "example/*",
+    "packages/*"
+  ]
+}
