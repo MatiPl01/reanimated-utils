@@ -11,7 +11,7 @@ function useCancelAnimations<V>(current: V): void {
   }, [current]);
 }
 
-export function useCurrentValue<V>(initialValue: V): V {
+export function useCurrentValue<V>(initialValue: (() => V) | V): V {
   const [current] = useState<V>(initialValue);
   useCancelAnimations(current);
   return current;

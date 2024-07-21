@@ -13,7 +13,7 @@ import { useComplexSharedValuesArray } from './useComplexSharedValuesArray';
 import { useComplexSharedValuesRecord } from './useComplexSharedValuesRecord';
 import { useComplexSharedValuesSingleton } from './useComplexSharedValuesSingleton';
 import {
-  evaluateSchema,
+  getSchema,
   isArraySchema,
   isRecordSchema,
   type SchemaFactory
@@ -34,7 +34,7 @@ export function useComplexSharedValues<V>(
   const schemaRef = useRef<ComplexSharedValuesSchema<V>>();
 
   if (schema !== schemaRef.current) {
-    const newSchema = evaluateSchema(schema);
+    const newSchema = getSchema(schema);
     if (schemaRef.current === undefined) {
       schemaRef.current = newSchema;
     } else if (!isEqual(schemaRef.current, newSchema)) {

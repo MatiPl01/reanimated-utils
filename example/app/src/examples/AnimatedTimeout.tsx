@@ -30,10 +30,7 @@ export default function AnimatedTimeoutExample() {
   useAnimatedReaction(
     () => counter.value,
     cnt => {
-      console.log('Setting animated timeout with: ', cnt);
-
       const timeout = setAnimatedTimeout(() => {
-        console.log('>>> Animated timeout callback');
         scale.value = withSequence(
           withSpring(2),
           withDelay(300, withTiming(1, { duration: 1000 }))
@@ -41,7 +38,6 @@ export default function AnimatedTimeoutExample() {
       }, 1000);
 
       if (cnt % 2 === 1) {
-        console.log('Clearing animated timeout');
         clearAnimatedTimeout(timeout);
       }
     }

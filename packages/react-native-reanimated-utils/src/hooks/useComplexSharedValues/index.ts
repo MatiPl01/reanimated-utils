@@ -1,5 +1,6 @@
 export type {
   ArrayMethods,
+  ComplexValue,
   RecordMethods,
   SchemaArray,
   SchemaMutable,

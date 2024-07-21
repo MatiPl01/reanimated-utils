@@ -4,17 +4,32 @@
 import { useCallback, useMemo } from 'react';
 
 import { useCurrentValue } from './hooks';
-import type {
-  ComplexSharedValuesReturnType,
-  Patch,
-  RecordMethods,
-  RecordSchema
+import {
+  type ComplexSharedValuesReturnType,
+  type Patch,
+  type RecordMethods,
+  type RecordSchema,
+  type SchemaRecord,
+  SchemaType
 } from './types';
-import { cancelAnimations, createFromSchema, updateFromSchema } from './utils';
+import {
+  cancelAnimations,
+  createFromSchema,
+  resetFromSchema,
+  updateFromSchema
+} from './utils';
+
+function isSchemaRecord(obj: any): obj is SchemaRecord<any> {
+  // eslint-disable-next-line no-underscore-dangle, @typescript-eslint/no-unsafe-member-access
+  return obj.__type === SchemaType.Record;
+}
 
 export function useComplexSharedValuesRecord<V>(
-  schema: RecordSchema
+  recordSchema: RecordSchema
 ): ComplexSharedValuesReturnType<V> {
+  const schema = isSchemaRecord(recordSchema)
+    ? recordSchema.defaultValue
+    : recordSchema.$key;
   const current = useCurrentValue<Record<string, any>>({});
 
   /**
@@ -29,10 +44,6 @@ export function useComplexSharedValuesRecord<V>(
         current[key] = createFromSchema(schema, value);
       } else if (value) {
         current[key] = updateFromSchema(schema, current[key], value);
-      } else {
-        console.warn(
-          '[react-native-reanimated-utils] Called set without value on non-existing key'
-        );
       }
       return current[key];
     },
@@ -53,6 +64,7 @@ export function useComplexSharedValuesRecord<V>(
   /**
    * Exposed functions as methods
    */
+
   const set = useCallback(
     (keys: Array<string> | string, value?: Patch<V>, patch = true) => {
       'worklet';
@@ -102,14 +114,11 @@ export function useComplexSharedValuesRecord<V>(
   const reset = useCallback(
     (...keys: Array<string>) => {
       'worklet';
-      if (keys.length === 1) {
-        return setSingle(keys[0]!, undefined, false);
-      }
-      return Object.fromEntries(
-        keys.map(key => [key, setSingle(key, undefined, false)])
-      );
+      keys.forEach(key => {
+        resetFromSchema(schema, current[key]);
+      });
     },
-    [setSingle]
+    [current, schema]
   );
 
   return useMemo<{ current: Record<string, any> } & RecordMethods<V>>(

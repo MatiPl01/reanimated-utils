@@ -17,6 +17,7 @@ export enum SchemaType {
   Array = 'Array',
   Mutable = 'Mutable',
   Object = 'Object',
+  Primitive = 'Primitive',
   Record = 'Record',
   Tuple = 'Tuple'
 }
@@ -48,28 +49,28 @@ export type SchemaObject<V> = {
 
 // for same reason I have to explicitly use types from above in order not
 // to get circular reference ts error
-type SchemaValueBase =
+type SchemaValueInsideMutable =
   // record
   | {
       __type: SchemaType.Record;
-      defaultValue: SchemaValueBase;
+      defaultValue: SchemaValueInsideMutable;
     }
   // arrays
   | (
-      | [SchemaValueBase]
+      | [SchemaValueInsideMutable]
       | {
           __type: SchemaType.Array;
-          defaultValue: SchemaValueBase;
+          defaultValue: SchemaValueInsideMutable;
         }
     )
   // objects
   | (
-      | { [key: string]: SchemaValueBase }
-      | SchemaObject<{ [key: string]: SchemaValueBase }>
+      | { [key: string]: SchemaValueInsideMutable }
+      | SchemaObject<{ [key: string]: SchemaValueInsideMutable }>
     )
   | Primitive
   // tuple
-  | SchemaTuple<{ [key: number]: SchemaValueBase }>;
+  | SchemaTuple<{ [key: number]: SchemaValueInsideMutable }>;
 
 type SchemaValue =
   // record
@@ -92,7 +93,7 @@ type SchemaValue =
     )
   | Primitive
   // mutable (can only contain non-mutable types)
-  | SchemaMutable<SchemaValueBase>
+  | SchemaMutable<SchemaValueInsideMutable>
   // tuple
   | SchemaTuple<{ [key: number]: SchemaValue }>;
 
@@ -184,7 +185,7 @@ type ReplaceSharedValues<T> =
 
 export type ComplexSharedValuesSchema<V> = ConvertToSchema<V>;
 
-export type ComplexSharedValuesCurrentType<V> =
+type ComplexSharedValuesCurrentType<V> =
   AreSameType<V, ConvertToSharedValue<V>> extends true
     ? V
     : V extends AnyFunction
@@ -219,7 +220,9 @@ type ExtractValueType<T> =
 // Convert to shared value first as V is assigned the schema type if not explicit type is provided
 export type Patch<V> = DeepPartial<ReplaceSharedValues<ComplexValue<V>>>;
 
-type ComplexValue<V> = ExtractValueType<ComplexSharedValuesCurrentType<V>>;
+export type ComplexValue<V> = ExtractValueType<
+  ComplexSharedValuesCurrentType<V>
+>;
 
 export type ArrayMethods<V> = {
   set(index: number, value?: Patch<V>, patch?: boolean): ComplexValue<V>;
@@ -244,8 +247,8 @@ export type ArrayMethods<V> = {
   remove(index: number): ComplexValue<V> | undefined;
   remove(...indexes: NonEmptyArray<number>): Array<ComplexValue<V>>;
 
-  reset(index: number): ComplexValue<V>;
-  reset(...indexes: NonEmptyArray<number>): Array<ComplexValue<V>>;
+  reset(index: number): void;
+  reset(...indexes: NonEmptyArray<number>): void;
 };
 
 export type RecordMethods<V> = {
@@ -268,14 +271,12 @@ export type RecordMethods<V> = {
     ...keys: NonEmptyArray<K>
   ): Record<K, ComplexValue<V>>;
 
-  reset(key: string): ComplexValue<V>;
-  reset<K extends string>(
-    ...keys: NonEmptyArray<K>
-  ): Record<K, ComplexValue<V>>;
+  reset(key: string): void;
+  reset<K extends string>(...keys: NonEmptyArray<K>): void;
 };
 
 export type SingletonMethods<V> = {
-  reset(): ComplexValue<V>;
+  reset(): void;
 
-  update(value: Patch<V>, patch?: boolean): ComplexValue<V>;
+  update(value: Patch<V>): ComplexValue<V>;
 };

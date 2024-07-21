@@ -5,22 +5,38 @@
 import { useCallback, useMemo } from 'react';
 
 import { useCurrentValue } from './hooks';
-import type {
-  ArrayMethods,
-  ArraySchema,
-  ComplexSharedValuesReturnType,
-  Patch
+import {
+  type ArrayMethods,
+  type ArraySchema,
+  type ComplexSharedValuesReturnType,
+  type Patch,
+  type SchemaArray,
+  SchemaType
 } from './types';
-import { cancelAnimations, createFromSchema, updateFromSchema } from './utils';
+import {
+  cancelAnimations,
+  createFromSchema,
+  resetFromSchema,
+  updateFromSchema
+} from './utils';
+
+function isSchemaArray(obj: any): obj is SchemaArray<any> {
+  // eslint-disable-next-line no-underscore-dangle, @typescript-eslint/no-unsafe-member-access
+  return obj.__type === SchemaType.Array;
+}
 
 export function useComplexSharedValuesArray<V>(
-  schema: ArraySchema
+  arraySchema: ArraySchema
 ): ComplexSharedValuesReturnType<V> {
+  const schema = isSchemaArray(arraySchema)
+    ? arraySchema.defaultValue
+    : arraySchema[0];
   const current = useCurrentValue<Array<any>>([]);
 
   /**
    * Internal functions
    */
+
   const setSingle = useCallback(
     (index: number, value?: Patch<V>, patch = true) => {
       'worklet';
@@ -29,10 +45,6 @@ export function useComplexSharedValuesArray<V>(
         current[index] = createFromSchema(schema, value);
       } else if (value) {
         current[index] = updateFromSchema(schema, current[index], value);
-      } else {
-        console.warn(
-          '[react-native-reanimated-utils] Called set without value on non-existing index'
-        );
       }
       return current[index];
     },
@@ -60,6 +72,7 @@ export function useComplexSharedValuesArray<V>(
   /**
    * Exposed functions as methods
    */
+
   const set = useCallback(
     (index: number, value?: Patch<V>, patch = true) => {
       'worklet';
@@ -174,12 +187,11 @@ export function useComplexSharedValuesArray<V>(
   const reset = useCallback(
     (...indexes: Array<number>) => {
       'worklet';
-      if (indexes.length === 1) {
-        return set(indexes[0]!, undefined, false);
-      }
-      return indexes.map(index => set(index, undefined, false));
+      indexes.forEach(index => {
+        resetFromSchema(schema, current[index]);
+      });
     },
-    [set]
+    [current, schema]
   );
 
   return useMemo<{ current: Record<string, any> } & ArrayMethods<V>>(
