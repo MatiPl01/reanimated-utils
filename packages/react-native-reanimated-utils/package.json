@@ -1,6 +1,9 @@
 {
   "name": "react-native-reanimated-utils",
   "version": "1.0.0",
+  "dependencies": {
+    "lodash-es": "^4.17.21"
+  },
   "devDependencies": {
     "@babel/core": "^7.24.7",
     "@babel/preset-env": "^7.24.7",
@@ -47,7 +50,6 @@
   "peerDependencies": {
     "react": "*",
     "react-native": "*",
-    "react-native-gesture-handler": ">=2.0.0",
     "react-native-reanimated": ">=3.0.0"
   },
   "publishConfig": {
@@ -62,8 +64,5 @@
     "test": "jest",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
-  "types": "dist/typescript/index.d.ts",
-  "dependencies": {
-    "lodash-es": "^4.17.21"
-  }
+  "types": "dist/typescript/index.d.ts"
 }
