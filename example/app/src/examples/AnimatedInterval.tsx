@@ -8,10 +8,7 @@ import Animated, {
   withSpring
 } from 'react-native-reanimated';
 import type { AnimatedIntervalID } from 'reanimated-utils';
-import {
-  clearAnimatedInterval,
-  setAnimatedInterval
-} from 'reanimated-utils';
+import { clearAnimatedInterval, setAnimatedInterval } from 'reanimated-utils';
 
 export default function AnimatedIntervalExample() {
   const scale = useSharedValue(1);

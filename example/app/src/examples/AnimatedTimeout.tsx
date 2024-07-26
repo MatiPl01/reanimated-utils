@@ -8,10 +8,7 @@ import Animated, {
   withSpring,
   withTiming
 } from 'react-native-reanimated';
-import {
-  clearAnimatedTimeout,
-  setAnimatedTimeout
-} from 'reanimated-utils';
+import { clearAnimatedTimeout, setAnimatedTimeout } from 'reanimated-utils';
 
 export default function AnimatedTimeoutExample() {
   const counter = useSharedValue(0);
