@@ -1,3 +1,21 @@
+# 1.0.0 (2024-07-26)
+
+
+### Bug Fixes
+
+* Rename library, fix release setup issues ([42e3614](https://github.com/MatiPl01/reanimated-utils/commit/42e36145c71005fa79b158c43f0b6154bf67dd22))
+
+
+### Features
+
+* Add basic value utility hooks ([#5](https://github.com/MatiPl01/reanimated-utils/issues/5)) ([b631c50](https://github.com/MatiPl01/reanimated-utils/commit/b631c5073fd398a60d15cbfb708ca85621df78a5))
+* Add complex shard values array implementation ([#10](https://github.com/MatiPl01/reanimated-utils/issues/10)) ([4583ff9](https://github.com/MatiPl01/reanimated-utils/commit/4583ff9936730ccc7f681e58713ca0259f1f8bd0))
+* Add implementation of complex shared values utils ([#11](https://github.com/MatiPl01/reanimated-utils/issues/11)) ([9619f1d](https://github.com/MatiPl01/reanimated-utils/commit/9619f1de763ef663ebcf0b6218de9416ba58df3c))
+* Add useComplexSharedValues hook - method type definitions ([#8](https://github.com/MatiPl01/reanimated-utils/issues/8)) ([62aec5f](https://github.com/MatiPl01/reanimated-utils/commit/62aec5faf323d71f2658d471fabd4c593580642c))
+* Add useComplexSharedValues hook - type definitions ([#7](https://github.com/MatiPl01/reanimated-utils/issues/7)) ([a8a1198](https://github.com/MatiPl01/reanimated-utils/commit/a8a11989c29eeebf62f4df59da26e75e398087f6))
+* Animated timeout and interval ([#6](https://github.com/MatiPl01/reanimated-utils/issues/6)) ([6712d7a](https://github.com/MatiPl01/reanimated-utils/commit/6712d7acdfeed025420124d647822278f89f4ee5))
+* Complex shared values object implementation ([#9](https://github.com/MatiPl01/reanimated-utils/issues/9)) ([e4b623c](https://github.com/MatiPl01/reanimated-utils/commit/e4b623cf64fc72bf0edf34bcc3b52b221e4a0cc3))
+
 ## [1.0.2](https://github.com/MatiPl01/reanimated-utils/compare/v1.0.1...v1.0.2) (2024-07-26)
 
 
