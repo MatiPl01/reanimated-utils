@@ -1,3 +1,15 @@
+# [1.1.0](https://github.com/MatiPl01/reanimated-utils/compare/v1.0.0...v1.1.0) (2024-07-26)
+
+
+### Bug Fixes
+
+* Code formatting issues ([#8](https://github.com/MatiPl01/reanimated-utils/issues/8)) ([5d05fc0](https://github.com/MatiPl01/reanimated-utils/commit/5d05fc0dbb7d7d4a6ea6940e74ec11078c45300b))
+
+
+### Features
+
+* Automatic complex shared values collections management ([#9](https://github.com/MatiPl01/reanimated-utils/issues/9)) ([6570a45](https://github.com/MatiPl01/reanimated-utils/commit/6570a45b26e360acf06c86803eef5ee9a8203a64))
+
 # 1.0.0 (2024-07-26)
 
 
