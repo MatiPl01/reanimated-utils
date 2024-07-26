@@ -7,6 +7,7 @@ import { useRef } from 'react';
 import type {
   ComplexSharedValuesReturnType,
   ComplexSharedValuesSchema,
+  DepsType,
   SingletonSchema
 } from './types';
 import { useComplexSharedValuesArray } from './useComplexSharedValuesArray';
@@ -19,17 +20,20 @@ import {
   type SchemaFactory
 } from './utils';
 
-// Function overloads
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function useComplexSharedValues<F extends SchemaFactory>(
+  schema: F,
+  deps?: DepsType<ReturnType<F>>
+): ComplexSharedValuesReturnType<ReturnType<F>>;
+
 export function useComplexSharedValues<V>(
-  schema: SchemaFactory<V>
+  schema: ComplexSharedValuesSchema<V> | SchemaFactory<V>,
+  deps?: DepsType<V>
 ): ComplexSharedValuesReturnType<V>;
 
 export function useComplexSharedValues<V>(
-  schema: ComplexSharedValuesSchema<V>
-): ComplexSharedValuesReturnType<V>;
-
-export function useComplexSharedValues<V>(
-  schema: ComplexSharedValuesSchema<V> | SchemaFactory<V>
+  schema: ComplexSharedValuesSchema<V> | SchemaFactory<V>,
+  deps?: DepsType<V>
 ): ComplexSharedValuesReturnType<V> {
   const schemaRef = useRef<ComplexSharedValuesSchema<V>>();
 
@@ -52,10 +56,16 @@ export function useComplexSharedValues<V>(
   }
 
   if (isArraySchema(currentSchema)) {
-    return useComplexSharedValuesArray(currentSchema);
+    return useComplexSharedValuesArray(
+      currentSchema,
+      deps as number | undefined
+    );
   }
   if (isRecordSchema(currentSchema)) {
-    return useComplexSharedValuesRecord(currentSchema);
+    return useComplexSharedValuesRecord(
+      currentSchema,
+      deps as Array<string> | undefined
+    );
   }
   return useComplexSharedValuesSingleton(currentSchema as SingletonSchema);
 }

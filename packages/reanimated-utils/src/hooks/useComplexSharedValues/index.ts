@@ -1,5 +1,6 @@
 export type {
   ArrayMethods,
+  ComplexSharedValuesReturnType as ComplexSharedValues,
   ComplexValue,
   RecordMethods,
   SchemaArray,

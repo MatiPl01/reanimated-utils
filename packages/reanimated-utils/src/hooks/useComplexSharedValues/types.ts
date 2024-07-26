@@ -118,7 +118,9 @@ type ConvertToSchemaOutsideMutable<T> =
               | [ConvertToSchemaOutsideMutable<U>]
               | SchemaArray<ConvertToSchemaOutsideMutable<U>>
         : IsInfiniteObject<T> extends true
-          ? SchemaRecord<ConvertToSchemaOutsideMutable<T[keyof T]>>
+          ?
+              | { $key: ConvertToSchemaOutsideMutable<T[keyof T]> }
+              | SchemaRecord<ConvertToSchemaOutsideMutable<T[keyof T]>>
           : T extends Record<string, any>
             ?
                 | {
@@ -141,7 +143,9 @@ type ConvertToSchemaInsideMutable<T> =
             | [ConvertToSchemaInsideMutable<U>]
             | SchemaArray<ConvertToSchemaInsideMutable<U>>
       : IsInfiniteObject<T> extends true
-        ? SchemaRecord<ConvertToSchemaInsideMutable<T[keyof T]>>
+        ?
+            | { $key: ConvertToSchemaInsideMutable<T[keyof T]> }
+            | SchemaRecord<ConvertToSchemaInsideMutable<T[keyof T]>>
         : T extends Record<string, any>
           ?
               | {
@@ -199,6 +203,17 @@ type MethodType<V> =
     : IsInfiniteObject<V> extends true
       ? RecordMethods<V>
       : SingletonMethods<V>;
+
+export type DepsType<V> =
+  IsInfiniteArray<V> extends true
+    ? number // items count in the top level array
+    : V extends SchemaArray<any>
+      ? number
+      : IsInfiniteObject<V> extends true
+        ? Array<string> // keys of the top level object
+        : V extends SchemaRecord<any>
+          ? Array<string>
+          : never;
 
 export type ComplexSharedValuesReturnType<V> = Simplify<
   {

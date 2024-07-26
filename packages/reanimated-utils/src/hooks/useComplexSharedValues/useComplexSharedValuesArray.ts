@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-return */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { useCallback, useMemo } from 'react';
+import { useCallback, useMemo, useRef } from 'react';
 
 import { useCurrentValue } from './hooks';
 import {
@@ -26,7 +26,8 @@ function isSchemaArray(obj: any): obj is SchemaArray<any> {
 }
 
 export function useComplexSharedValuesArray<V>(
-  arraySchema: ArraySchema
+  arraySchema: ArraySchema,
+  dep?: number
 ): ComplexSharedValuesReturnType<V> {
   const schema = isSchemaArray(arraySchema)
     ? arraySchema.defaultValue
@@ -193,6 +194,20 @@ export function useComplexSharedValuesArray<V>(
     },
     [current, schema]
   );
+
+  /**
+   * Update the array based on the dependencies
+   */
+  const prevDepRef = useRef(dep);
+  if (dep !== undefined && dep !== prevDepRef.current) {
+    if (dep > current.length) {
+      push(dep - current.length);
+    } else if (dep < current.length) {
+      splice(dep);
+    }
+
+    prevDepRef.current = dep;
+  }
 
   return useMemo<{ current: Record<string, any> } & ArrayMethods<V>>(
     () => ({

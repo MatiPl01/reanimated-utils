@@ -1,5 +1,5 @@
-import AnimatedIntervalExample from './examples/AnimatedInterval';
+import ComplexSharedValues from './examples/ComplexSharedValues';
 
 export default function App() {
-  return <AnimatedIntervalExample />;
+  return <ComplexSharedValues />;
 }

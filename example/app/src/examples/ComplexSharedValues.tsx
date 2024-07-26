@@ -1,7 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable camelcase */
 /* eslint-disable import/no-unused-modules */
-import { runOnUI } from 'react-native-reanimated';
+
+import { useEffect, useState } from 'react';
+import { runOnUI, type SharedValue } from 'react-native-reanimated';
 import {
   array,
   mutable,
@@ -11,63 +13,47 @@ import {
   useComplexSharedValues
 } from 'reanimated-utils';
 
-// const schema1 = { $key: mutable({ height: 0, width: 0 }) };
+const schema1 = { $key: mutable({ height: 0, width: 0 }) };
 
-// const schema2 = record(mutable(0));
+const schema2 = record(mutable(0));
 
-// type KeyToIndex = Record<string, SharedValue<number>>;
+type KeyToIndex = Record<string, SharedValue<number>>;
 
-// type ItemPositions = Record<
-//   string,
-//   { x: SharedValue<number>; y: SharedValue<number> }
-// >;
+type ItemPositions = Record<
+  string,
+  { x: SharedValue<number>; y: SharedValue<number> }
+>;
 
 export default function ComplexSharedValues() {
-  // // Variant 1:
-  // //  - with schema defined outside of the hook
-  // //  - without explicit type annotations
-  // const dimensions = useComplexSharedValues(schema1);
-  // console.log('dimensions', dimensions.current);
+  const dimensions = useComplexSharedValues(schema1);
+  console.log('dimensions', dimensions.current);
 
-  // // Variant 2:
-  // //  - with schema defined inside of the hook
-  // //  - with explicit type annotations
-  // const keyToIndex = useComplexSharedValues<KeyToIndex>(schema2);
-  // console.log('keyToIndex', keyToIndex.current);
+  const keyToIndex = useComplexSharedValues<KeyToIndex>(schema2);
+  console.log('keyToIndex', keyToIndex.current);
 
-  // // Variant 3:
-  // //  - with schema defined inside of the hook
-  // //  - without explicit type annotations
-  // const rowOffsets = useComplexSharedValues(tuple(mutable(0), mutable('1')));
-  // console.log(
-  //   'rowOffsets',
-  //   rowOffsets.current.map(value => value.value)
-  // );
+  const itemPositions = useComplexSharedValues<ItemPositions>(() =>
+    record({
+      x: mutable(0),
+      y: mutable(0)
+    })
+  );
+  console.log('itemPositions', itemPositions.current);
 
-  // // Variant 4:
-  // //  - with schema defined inside of the hook
-  // //  - with explicit type annotations
-  // const itemPositions = useComplexSharedValues<ItemPositions>(() =>
-  //   record({
-  //     x: mutable(0),
-  //     y: mutable(0)
-  //   })
-  // );
-  // console.log('itemPositions', itemPositions.current);
-
-  // const test1 = useComplexSharedValues({ a: mutable(0) });
-  // console.log('test1.a.value', test1.current.a.value);
-  // const test2 = useComplexSharedValues([mutable(0)]);
-  // console.log('test2', test2.current);
-  // const test3 = useComplexSharedValues(tuple(mutable(0), mutable('1')));
-  // console.log(
-  //   'test3',
-  //   test3.current.map(value => value.value)
-  // );
-  // const test4 = useComplexSharedValues(array(mutable(0)));
-  // console.log('test4', test4.current);
-  // const test5 = useComplexSharedValues(array(record(mutable(0))));
-  // console.log('test5', test5.current);
+  const test1 = useComplexSharedValues({ a: mutable(0) });
+  console.log('test1.a.value', test1.current.a.value);
+  const test2 = useComplexSharedValues([mutable(0)], 4);
+  console.log('test2', test2.current);
+  const test3 = useComplexSharedValues(tuple(mutable(0), mutable('1')));
+  console.log(
+    'test3',
+    test3.current.map(value => value.value)
+  );
+  const test4 = useComplexSharedValues(array(mutable(0)), 4);
+  console.log('test4', test4.current);
+  const test5 = useComplexSharedValues<
+    Array<Record<string, SharedValue<number>>>
+  >(array(record(mutable(0))), 10);
+  console.log('test5', test5.current);
   const test6 = useComplexSharedValues(
     array(
       tuple(
@@ -75,7 +61,8 @@ export default function ComplexSharedValues() {
         { a: mutable(tuple(0, 0)) },
         object({ a: 0, b: 0, c: mutable('1') })
       )
-    )
+    ),
+    4
   );
   test6.push(3);
   // console.log('test6', test6.current[0]?.[2].c.value);
@@ -90,6 +77,10 @@ export default function ComplexSharedValues() {
     ]);
     console.log('test6_set_1', test6_set_1[2].c.value);
   })();
+
+  // const overrideItemDimensions = useComplexSharedValues<
+  //   Record<string, SharedValue<Partial<{ width: number; height: number }>>>
+  // >({ $key: mutable({ height: 0, width: 0 }) });
 
   // // Alternative syntax (record)
   // // all return: Record<string, SharedValue<number>>
@@ -145,8 +136,52 @@ export default function ComplexSharedValues() {
   // const test_5_1 = useComplexSharedValues(() => mutable(tuple(0, 1)));
   // const test_5_2 = useComplexSharedValues(mutable(tuple(0, 1)));
 
-  // dimensions.set('key1');
-  // console.log('?', dimensions.current.key1?.value);
+  dimensions.set('key1');
+  console.log('?', dimensions.current.key1?.value);
+
+  const [keys, setKeys] = useState<Array<string>>([]);
+  const overrideItemDimensions = useComplexSharedValues(
+    s => s.record(s.mutable({ height: 0, width: 0 })),
+    keys
+  );
+
+  useEffect(() => {
+    console.log('effect');
+    const interval = setInterval(() => {
+      setKeys(prevKeys => {
+        const newKeys = [...prevKeys];
+        newKeys.push(`key${newKeys.length + 1}`);
+        return newKeys;
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [overrideItemDimensions]);
+
+  console.log('body', keys);
+  console.log(
+    'current',
+    Object.values(overrideItemDimensions.current).map(value => value.value)
+  );
+
+  const [rowCount, setRowCount] = useState(0);
+  const rowOffsets = useComplexSharedValues(
+    s => s.array(s.mutable(0)),
+    rowCount
+  );
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setRowCount(count => count + 1);
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [rowOffsets]);
+
+  console.log(
+    'rowOffsets',
+    rowOffsets.current.map(value => value.value)
+  );
 
   return null;
 }
