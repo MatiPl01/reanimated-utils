@@ -142,9 +142,7 @@ function traverseObject<V>(obj: V, callback: (value: any) => boolean): void {
   const traverse = (value: any, depth: number) => {
     'worklet';
     if (depth > MAX_TRAVERSE_DEPTH) {
-      throw new Error(
-        '[reanimated-utils] traverseObject: Max depth reached'
-      );
+      throw new Error('[reanimated-utils] traverseObject: Max depth reached');
     }
 
     // stop traversing if callback returns false
@@ -188,9 +186,7 @@ function traverseWithDepthCheck<V>(
   ): any {
     'worklet';
     if (depth > MAX_TRAVERSE_DEPTH) {
-      throw new Error(
-        '[reanimated-utils] traverse: Max depth reached'
-      );
+      throw new Error('[reanimated-utils] traverse: Max depth reached');
     }
 
     const schemaType = resolveSchemaType(schemaValue);
