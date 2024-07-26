@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unsafe-return */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useCallback, useMemo } from 'react';
+import { isEqual } from 'lodash-es';
+import { useCallback, useMemo, useRef } from 'react';
 
 import { useCurrentValue } from './hooks';
 import {
@@ -25,7 +26,8 @@ function isSchemaRecord(obj: any): obj is SchemaRecord<any> {
 }
 
 export function useComplexSharedValuesRecord<V>(
-  recordSchema: RecordSchema
+  recordSchema: RecordSchema,
+  deps?: Array<string>
 ): ComplexSharedValuesReturnType<V> {
   const schema = isSchemaRecord(recordSchema)
     ? recordSchema.defaultValue
@@ -120,6 +122,22 @@ export function useComplexSharedValuesRecord<V>(
     },
     [current, schema]
   );
+
+  /**
+   * Update the record based on the dependencies
+   */
+  const prevDepsRef = useRef<Array<string>>();
+  if (deps && !isEqual(deps, prevDepsRef.current)) {
+    const currentKeys = Object.keys(current);
+    const newKeysSet = new Set(deps);
+
+    const removedKeys = currentKeys.filter(key => !newKeysSet.has(key));
+    const addedKeys = deps.filter(key => !current[key]);
+    set([...addedKeys]);
+    remove(...removedKeys);
+
+    prevDepsRef.current = deps;
+  }
 
   return useMemo<{ current: Record<string, any> } & RecordMethods<V>>(
     () => ({

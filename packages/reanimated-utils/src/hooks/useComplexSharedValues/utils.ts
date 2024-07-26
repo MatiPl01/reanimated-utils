@@ -54,7 +54,7 @@ export const object = <V>(defaultValue: V): SchemaObject<V> => ({
   defaultValue
 });
 
-export type SchemaFactory<V> = (args: {
+export type SchemaFactory<V = any> = (args: {
   mutable: typeof mutable;
   tuple: typeof tuple;
   array: typeof array;

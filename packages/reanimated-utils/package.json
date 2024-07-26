@@ -60,7 +60,7 @@
     "build": "yarn clean && bob build",
     "clean": "../../scripts/clean.sh",
     "postpack": "rm ./README.md",
-    "prepack": "bob build && cp ../../README.md ./README.md",
+    "prepack": "bob build && rm -f *.tgz && cp ../../README.md ./README.md",
     "test": "jest",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
