@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "react-native-reanimated-utils",
-    "slug": "react-native-reanimated-utils",
+    "name": "reanimated-utils",
+    "slug": "reanimated-utils",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

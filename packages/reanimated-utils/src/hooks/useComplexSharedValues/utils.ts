@@ -143,7 +143,7 @@ function traverseObject<V>(obj: V, callback: (value: any) => boolean): void {
     'worklet';
     if (depth > MAX_TRAVERSE_DEPTH) {
       throw new Error(
-        '[react-native-reanimated-utils] traverseObject: Max depth reached'
+        '[reanimated-utils] traverseObject: Max depth reached'
       );
     }
 
@@ -189,7 +189,7 @@ function traverseWithDepthCheck<V>(
     'worklet';
     if (depth > MAX_TRAVERSE_DEPTH) {
       throw new Error(
-        '[react-native-reanimated-utils] traverse: Max depth reached'
+        '[reanimated-utils] traverse: Max depth reached'
       );
     }
 
@@ -211,7 +211,7 @@ function makeMutableWithCheck<V>(value: V): SharedValue<V> {
     return makeMutable(value);
   } catch (e) {
     throw new Error(
-      '[react-native-reanimated-utils] Cannot create mutable value on the UI thread. If you want to create new mutable values, make sure to run the .set method on the JS thread.'
+      '[reanimated-utils] Cannot create mutable value on the UI thread. If you want to create new mutable values, make sure to run the .set method on the JS thread.'
     );
   }
 }

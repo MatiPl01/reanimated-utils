@@ -9,7 +9,7 @@ import {
   record,
   tuple,
   useComplexSharedValues
-} from 'react-native-reanimated-utils';
+} from 'reanimated-utils';
 
 // const schema1 = { $key: mutable({ height: 0, width: 0 }) };
 

@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00E356F31AD99517003FC87E /* reactNativeReanimatedUtilsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* reactNativeReanimatedUtilsTests.m */; };
+		00E356F31AD99517003FC87E /* reanimatedUtilsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* reanimatedUtilsTests.m */; };
 		010D68154F29AD5A3A484DDA /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 5A9E449C9069D4C4FA204235 /* PrivacyInfo.xcprivacy */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		6F381D84B05C144CAA1BD4FF /* libPods-reactNativeReanimatedUtils-reactNativeReanimatedUtilsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C533A30003BD96456469A66B /* libPods-reactNativeReanimatedUtils-reactNativeReanimatedUtilsTests.a */; };
+		6F381D84B05C144CAA1BD4FF /* libPods-reanimatedUtils-reanimatedUtilsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C533A30003BD96456469A66B /* libPods-reanimatedUtils-reanimatedUtilsTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		928A9D8C23F2777952DF153E /* libPods-reactNativeReanimatedUtils.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96F60E06067E070759581B78 /* libPods-reactNativeReanimatedUtils.a */; };
+		928A9D8C23F2777952DF153E /* libPods-reanimatedUtils.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96F60E06067E070759581B78 /* libPods-reanimatedUtils.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,29 +23,29 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = reactNativeReanimatedUtils;
+			remoteInfo = reanimatedUtils;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00E356EE1AD99517003FC87E /* reactNativeReanimatedUtilsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = reactNativeReanimatedUtilsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* reanimatedUtilsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = reanimatedUtilsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* reactNativeReanimatedUtilsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = reactNativeReanimatedUtilsTests.m; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* reactNativeReanimatedUtils.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = reactNativeReanimatedUtils.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = reactNativeReanimatedUtils/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = reactNativeReanimatedUtils/AppDelegate.mm; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = reactNativeReanimatedUtils/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = reactNativeReanimatedUtils/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = reactNativeReanimatedUtils/main.m; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* reanimatedUtilsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = reanimatedUtilsTests.m; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* reanimatedUtils.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = reanimatedUtils.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = reanimatedUtils/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = reanimatedUtils/AppDelegate.mm; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = reanimatedUtils/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = reanimatedUtils/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = reanimatedUtils/main.m; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = RnDiffApp/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		3D1617C970D866EE8A68F7AF /* Pods-reactNativeReanimatedUtils.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reactNativeReanimatedUtils.release.xcconfig"; path = "Target Support Files/Pods-reactNativeReanimatedUtils/Pods-reactNativeReanimatedUtils.release.xcconfig"; sourceTree = "<group>"; };
-		5A9E449C9069D4C4FA204235 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = reactNativeReanimatedUtils/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = reactNativeReanimatedUtils/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		96F60E06067E070759581B78 /* libPods-reactNativeReanimatedUtils.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-reactNativeReanimatedUtils.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A37C7F99A0796E5184810473 /* Pods-reactNativeReanimatedUtils-reactNativeReanimatedUtilsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reactNativeReanimatedUtils-reactNativeReanimatedUtilsTests.debug.xcconfig"; path = "Target Support Files/Pods-reactNativeReanimatedUtils-reactNativeReanimatedUtilsTests/Pods-reactNativeReanimatedUtils-reactNativeReanimatedUtilsTests.debug.xcconfig"; sourceTree = "<group>"; };
-		AA33FE146B3145DCBE177C16 /* Pods-reactNativeReanimatedUtils-reactNativeReanimatedUtilsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reactNativeReanimatedUtils-reactNativeReanimatedUtilsTests.release.xcconfig"; path = "Target Support Files/Pods-reactNativeReanimatedUtils-reactNativeReanimatedUtilsTests/Pods-reactNativeReanimatedUtils-reactNativeReanimatedUtilsTests.release.xcconfig"; sourceTree = "<group>"; };
-		C533A30003BD96456469A66B /* libPods-reactNativeReanimatedUtils-reactNativeReanimatedUtilsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-reactNativeReanimatedUtils-reactNativeReanimatedUtilsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DA0FAB33C91B79D98B17F5B1 /* Pods-reactNativeReanimatedUtils.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reactNativeReanimatedUtils.debug.xcconfig"; path = "Target Support Files/Pods-reactNativeReanimatedUtils/Pods-reactNativeReanimatedUtils.debug.xcconfig"; sourceTree = "<group>"; };
+		3D1617C970D866EE8A68F7AF /* Pods-reanimatedUtils.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reanimatedUtils.release.xcconfig"; path = "Target Support Files/Pods-reanimatedUtils/Pods-reanimatedUtils.release.xcconfig"; sourceTree = "<group>"; };
+		5A9E449C9069D4C4FA204235 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = reanimatedUtils/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = reanimatedUtils/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		96F60E06067E070759581B78 /* libPods-reanimatedUtils.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-reanimatedUtils.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A37C7F99A0796E5184810473 /* Pods-reanimatedUtils-reanimatedUtilsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reanimatedUtils-reanimatedUtilsTests.debug.xcconfig"; path = "Target Support Files/Pods-reanimatedUtils-reanimatedUtilsTests/Pods-reanimatedUtils-reanimatedUtilsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		AA33FE146B3145DCBE177C16 /* Pods-reanimatedUtils-reanimatedUtilsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reanimatedUtils-reanimatedUtilsTests.release.xcconfig"; path = "Target Support Files/Pods-reanimatedUtils-reanimatedUtilsTests/Pods-reanimatedUtils-reanimatedUtilsTests.release.xcconfig"; sourceTree = "<group>"; };
+		C533A30003BD96456469A66B /* libPods-reanimatedUtils-reanimatedUtilsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-reanimatedUtils-reanimatedUtilsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA0FAB33C91B79D98B17F5B1 /* Pods-reanimatedUtils.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reanimatedUtils.debug.xcconfig"; path = "Target Support Files/Pods-reanimatedUtils/Pods-reanimatedUtils.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -54,7 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F381D84B05C144CAA1BD4FF /* libPods-reactNativeReanimatedUtils-reactNativeReanimatedUtilsTests.a in Frameworks */,
+				6F381D84B05C144CAA1BD4FF /* libPods-reanimatedUtils-reanimatedUtilsTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,20 +62,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				928A9D8C23F2777952DF153E /* libPods-reactNativeReanimatedUtils.a in Frameworks */,
+				928A9D8C23F2777952DF153E /* libPods-reanimatedUtils.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00E356EF1AD99517003FC87E /* reactNativeReanimatedUtilsTests */ = {
+		00E356EF1AD99517003FC87E /* reanimatedUtilsTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* reactNativeReanimatedUtilsTests.m */,
+				00E356F21AD99517003FC87E /* reanimatedUtilsTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = reactNativeReanimatedUtilsTests;
+			path = reanimatedUtilsTests;
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -86,7 +86,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* reactNativeReanimatedUtils */ = {
+		13B07FAE1A68108700A75B9A /* reanimatedUtils */ = {
 			isa = PBXGroup;
 			children = (
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -98,15 +98,15 @@
 				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
 				5A9E449C9069D4C4FA204235 /* PrivacyInfo.xcprivacy */,
 			);
-			name = reactNativeReanimatedUtils;
+			name = reanimatedUtils;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				96F60E06067E070759581B78 /* libPods-reactNativeReanimatedUtils.a */,
-				C533A30003BD96456469A66B /* libPods-reactNativeReanimatedUtils-reactNativeReanimatedUtilsTests.a */,
+				96F60E06067E070759581B78 /* libPods-reanimatedUtils.a */,
+				C533A30003BD96456469A66B /* libPods-reanimatedUtils-reanimatedUtilsTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -121,9 +121,9 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* reactNativeReanimatedUtils */,
+				13B07FAE1A68108700A75B9A /* reanimatedUtils */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* reactNativeReanimatedUtilsTests */,
+				00E356EF1AD99517003FC87E /* reanimatedUtilsTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
@@ -136,8 +136,8 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* reactNativeReanimatedUtils.app */,
-				00E356EE1AD99517003FC87E /* reactNativeReanimatedUtilsTests.xctest */,
+				13B07F961A680F5B00A75B9A /* reanimatedUtils.app */,
+				00E356EE1AD99517003FC87E /* reanimatedUtilsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -145,10 +145,10 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				DA0FAB33C91B79D98B17F5B1 /* Pods-reactNativeReanimatedUtils.debug.xcconfig */,
-				3D1617C970D866EE8A68F7AF /* Pods-reactNativeReanimatedUtils.release.xcconfig */,
-				A37C7F99A0796E5184810473 /* Pods-reactNativeReanimatedUtils-reactNativeReanimatedUtilsTests.debug.xcconfig */,
-				AA33FE146B3145DCBE177C16 /* Pods-reactNativeReanimatedUtils-reactNativeReanimatedUtilsTests.release.xcconfig */,
+				DA0FAB33C91B79D98B17F5B1 /* Pods-reanimatedUtils.debug.xcconfig */,
+				3D1617C970D866EE8A68F7AF /* Pods-reanimatedUtils.release.xcconfig */,
+				A37C7F99A0796E5184810473 /* Pods-reanimatedUtils-reanimatedUtilsTests.debug.xcconfig */,
+				AA33FE146B3145DCBE177C16 /* Pods-reanimatedUtils-reanimatedUtilsTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -156,9 +156,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* reactNativeReanimatedUtilsTests */ = {
+		00E356ED1AD99517003FC87E /* reanimatedUtilsTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "reactNativeReanimatedUtilsTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "reanimatedUtilsTests" */;
 			buildPhases = (
 				9872EAC841ECEB15703926DC /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
@@ -172,14 +172,14 @@
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = reactNativeReanimatedUtilsTests;
-			productName = reactNativeReanimatedUtilsTests;
-			productReference = 00E356EE1AD99517003FC87E /* reactNativeReanimatedUtilsTests.xctest */;
+			name = reanimatedUtilsTests;
+			productName = reanimatedUtilsTests;
+			productReference = 00E356EE1AD99517003FC87E /* reanimatedUtilsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* reactNativeReanimatedUtils */ = {
+		13B07F861A680F5B00A75B9A /* reanimatedUtils */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "reactNativeReanimatedUtils" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "reanimatedUtils" */;
 			buildPhases = (
 				99441A989B25920142824115 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
@@ -193,9 +193,9 @@
 			);
 			dependencies = (
 			);
-			name = reactNativeReanimatedUtils;
-			productName = reactNativeReanimatedUtils;
-			productReference = 13B07F961A680F5B00A75B9A /* reactNativeReanimatedUtils.app */;
+			name = reanimatedUtils;
+			productName = reanimatedUtils;
+			productReference = 13B07F961A680F5B00A75B9A /* reanimatedUtils.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -215,7 +215,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "reactNativeReanimatedUtils" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "reanimatedUtils" */;
 			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -228,8 +228,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* reactNativeReanimatedUtils */,
-				00E356ED1AD99517003FC87E /* reactNativeReanimatedUtilsTests */,
+				13B07F861A680F5B00A75B9A /* reanimatedUtils */,
+				00E356ED1AD99517003FC87E /* reanimatedUtilsTests */,
 			);
 		};
 /* End PBXProject section */
@@ -277,15 +277,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-reactNativeReanimatedUtils/Pods-reactNativeReanimatedUtils-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-reanimatedUtils/Pods-reanimatedUtils-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-reactNativeReanimatedUtils/Pods-reactNativeReanimatedUtils-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-reanimatedUtils/Pods-reanimatedUtils-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-reactNativeReanimatedUtils/Pods-reactNativeReanimatedUtils-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-reanimatedUtils/Pods-reanimatedUtils-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		86C71F13B63916D42DEA73DA /* [CP] Copy Pods Resources */ = {
@@ -294,15 +294,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-reactNativeReanimatedUtils-reactNativeReanimatedUtilsTests/Pods-reactNativeReanimatedUtils-reactNativeReanimatedUtilsTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-reanimatedUtils-reanimatedUtilsTests/Pods-reanimatedUtils-reanimatedUtilsTests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-reactNativeReanimatedUtils-reactNativeReanimatedUtilsTests/Pods-reactNativeReanimatedUtils-reactNativeReanimatedUtilsTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-reanimatedUtils-reanimatedUtilsTests/Pods-reanimatedUtils-reanimatedUtilsTests-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-reactNativeReanimatedUtils-reactNativeReanimatedUtilsTests/Pods-reactNativeReanimatedUtils-reactNativeReanimatedUtilsTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-reanimatedUtils-reanimatedUtilsTests/Pods-reanimatedUtils-reanimatedUtilsTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		94C2CCB5E6F52DE1FFF14444 /* [CP] Embed Pods Frameworks */ = {
@@ -311,15 +311,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-reactNativeReanimatedUtils-reactNativeReanimatedUtilsTests/Pods-reactNativeReanimatedUtils-reactNativeReanimatedUtilsTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-reanimatedUtils-reanimatedUtilsTests/Pods-reanimatedUtils-reanimatedUtilsTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-reactNativeReanimatedUtils-reactNativeReanimatedUtilsTests/Pods-reactNativeReanimatedUtils-reactNativeReanimatedUtilsTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-reanimatedUtils-reanimatedUtilsTests/Pods-reanimatedUtils-reanimatedUtilsTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-reactNativeReanimatedUtils-reactNativeReanimatedUtilsTests/Pods-reactNativeReanimatedUtils-reactNativeReanimatedUtilsTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-reanimatedUtils-reanimatedUtilsTests/Pods-reanimatedUtils-reanimatedUtilsTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9872EAC841ECEB15703926DC /* [CP] Check Pods Manifest.lock */ = {
@@ -337,7 +337,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-reactNativeReanimatedUtils-reactNativeReanimatedUtilsTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-reanimatedUtils-reanimatedUtilsTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -359,7 +359,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-reactNativeReanimatedUtils-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-reanimatedUtils-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -372,15 +372,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-reactNativeReanimatedUtils/Pods-reactNativeReanimatedUtils-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-reanimatedUtils/Pods-reanimatedUtils-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-reactNativeReanimatedUtils/Pods-reactNativeReanimatedUtils-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-reanimatedUtils/Pods-reanimatedUtils-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-reactNativeReanimatedUtils/Pods-reactNativeReanimatedUtils-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-reanimatedUtils/Pods-reanimatedUtils-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -390,7 +390,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* reactNativeReanimatedUtilsTests.m in Sources */,
+				00E356F31AD99517003FC87E /* reanimatedUtilsTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,7 +408,7 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* reactNativeReanimatedUtils */;
+			target = 13B07F861A680F5B00A75B9A /* reanimatedUtils */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -416,14 +416,14 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A37C7F99A0796E5184810473 /* Pods-reactNativeReanimatedUtils-reactNativeReanimatedUtilsTests.debug.xcconfig */;
+			baseConfigurationReference = A37C7F99A0796E5184810473 /* Pods-reanimatedUtils-reanimatedUtilsTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = reactNativeReanimatedUtilsTests/Info.plist;
+				INFOPLIST_FILE = reanimatedUtilsTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -435,19 +435,19 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.reactNativeReanimatedUtils.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.reanimatedUtils.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/reactNativeReanimatedUtils.app/reactNativeReanimatedUtils";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/reanimatedUtils.app/reanimatedUtils";
 			};
 			name = Debug;
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AA33FE146B3145DCBE177C16 /* Pods-reactNativeReanimatedUtils-reactNativeReanimatedUtilsTests.release.xcconfig */;
+			baseConfigurationReference = AA33FE146B3145DCBE177C16 /* Pods-reanimatedUtils-reanimatedUtilsTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = reactNativeReanimatedUtilsTests/Info.plist;
+				INFOPLIST_FILE = reanimatedUtilsTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -459,21 +459,21 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.reactNativeReanimatedUtils.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.reanimatedUtils.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/reactNativeReanimatedUtils.app/reactNativeReanimatedUtils";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/reanimatedUtils.app/reanimatedUtils";
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DA0FAB33C91B79D98B17F5B1 /* Pods-reactNativeReanimatedUtils.debug.xcconfig */;
+			baseConfigurationReference = DA0FAB33C91B79D98B17F5B1 /* Pods-reanimatedUtils.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = reactNativeReanimatedUtils/Info.plist;
+				INFOPLIST_FILE = reanimatedUtils/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -484,8 +484,8 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.reactNativeReanimatedUtils.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = reactNativeReanimatedUtils;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.reanimatedUtils.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = reanimatedUtils;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -494,12 +494,12 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3D1617C970D866EE8A68F7AF /* Pods-reactNativeReanimatedUtils.release.xcconfig */;
+			baseConfigurationReference = 3D1617C970D866EE8A68F7AF /* Pods-reanimatedUtils.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				INFOPLIST_FILE = reactNativeReanimatedUtils/Info.plist;
+				INFOPLIST_FILE = reanimatedUtils/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -510,8 +510,8 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.reactNativeReanimatedUtils.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = reactNativeReanimatedUtils;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.reanimatedUtils.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = reanimatedUtils;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -678,7 +678,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "reactNativeReanimatedUtilsTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "reanimatedUtilsTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -687,7 +687,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "reactNativeReanimatedUtils" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "reanimatedUtils" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -696,7 +696,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "reactNativeReanimatedUtils" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "reanimatedUtils" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,

@@ -11,7 +11,7 @@ import Animated, {
 import {
   clearAnimatedTimeout,
   setAnimatedTimeout
-} from 'react-native-reanimated-utils';
+} from 'reanimated-utils';
 
 export default function AnimatedTimeoutExample() {
   const counter = useSharedValue(0);

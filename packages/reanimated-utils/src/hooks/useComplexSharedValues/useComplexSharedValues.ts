@@ -39,7 +39,7 @@ export function useComplexSharedValues<V>(
       schemaRef.current = newSchema;
     } else if (!isEqual(schemaRef.current, newSchema)) {
       throw new Error(
-        '[react-native-reanimated-utils] Changing schema on the fly is not supported'
+        '[reanimated-utils] Changing schema on the fly is not supported'
       );
     }
   }
@@ -48,7 +48,7 @@ export function useComplexSharedValues<V>(
 
   // TODO - add schema validation via JS (not only TS types validation)
   if (currentSchema === undefined) {
-    throw new Error('[react-native-reanimated-utils] Invalid schema provided');
+    throw new Error('[reanimated-utils] Invalid schema provided');
   }
 
   if (isArraySchema(currentSchema)) {

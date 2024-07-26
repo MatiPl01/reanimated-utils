@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "reactNativeReanimatedUtils.app"
-               BlueprintName = "reactNativeReanimatedUtils"
-               ReferencedContainer = "container:reactNativeReanimatedUtils.xcodeproj">
+               BuildableName = "reanimatedUtils.app"
+               BlueprintName = "reanimatedUtils"
+               ReferencedContainer = "container:reanimatedUtils.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "reactNativeReanimatedUtilsTests.xctest"
-               BlueprintName = "reactNativeReanimatedUtilsTests"
-               ReferencedContainer = "container:reactNativeReanimatedUtils.xcodeproj">
+               BuildableName = "reanimatedUtilsTests.xctest"
+               BlueprintName = "reanimatedUtilsTests"
+               ReferencedContainer = "container:reanimatedUtils.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "reactNativeReanimatedUtils.app"
-            BlueprintName = "reactNativeReanimatedUtils"
-            ReferencedContainer = "container:reactNativeReanimatedUtils.xcodeproj">
+            BuildableName = "reanimatedUtils.app"
+            BlueprintName = "reanimatedUtils"
+            ReferencedContainer = "container:reanimatedUtils.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "reactNativeReanimatedUtils.app"
-            BlueprintName = "reactNativeReanimatedUtils"
-            ReferencedContainer = "container:reactNativeReanimatedUtils.xcodeproj">
+            BuildableName = "reanimatedUtils.app"
+            BlueprintName = "reanimatedUtils"
+            ReferencedContainer = "container:reanimatedUtils.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

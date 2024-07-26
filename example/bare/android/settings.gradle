@@ -1,4 +1,4 @@
-rootProject.name = 'react-native-reanimated-utils'
+rootProject.name = 'reanimated-utils'
 
 def nodeModulesPath = "../../../node_modules"
 

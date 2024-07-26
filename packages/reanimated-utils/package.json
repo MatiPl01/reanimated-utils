@@ -1,6 +1,6 @@
 {
-  "name": "react-native-reanimated-utils",
-  "version": "1.0.0",
+  "name": "reanimated-utils",
+  "version": "1.0.2",
   "dependencies": {
     "lodash-es": "^4.17.21"
   },
@@ -60,7 +60,7 @@
     "build": "yarn clean && bob build",
     "clean": "../../scripts/clean.sh",
     "postpack": "rm ./README.md",
-    "prepack": "cp ../../README.md ./README.md",
+    "prepack": "bob build && cp ../../README.md ./README.md",
     "test": "jest",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },

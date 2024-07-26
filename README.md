@@ -1,16 +1,17 @@
-# 📕 react-native-reanimated-utils
+# 📕 reanimated-utils
 
 A library with the set of utility functions and hooks that enhance the usage of `react-native-reanimated` library.
 
 ## Installation
 
 - npm
+
   ```sh
-  npm i Breadcrumbsreact-native-reanimated-utils
+  npm i reanimated-utils
   ```
 
 - yarn
+
   ```sh
-  yarn add  Breadcrumbsreact-native-reanimated-utils
+  yarn add reanimated-utils
   ```
-  
