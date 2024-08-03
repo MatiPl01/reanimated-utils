@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unsafe-return */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { isEqual } from 'lodash-es';
-import { useCallback, useMemo, useRef } from 'react';
+import { useCallback, useMemo } from 'react';
 
 import { useCurrentValue } from './hooks';
 import {
@@ -126,8 +125,7 @@ export function useComplexSharedValuesRecord<V>(
   /**
    * Update the record based on the dependencies
    */
-  const prevDepsRef = useRef<Array<string>>();
-  if (deps && !isEqual(deps, prevDepsRef.current)) {
+  if (deps) {
     const currentKeys = Object.keys(current);
     const newKeysSet = new Set(deps);
 
@@ -135,8 +133,6 @@ export function useComplexSharedValuesRecord<V>(
     const addedKeys = deps.filter(key => !current[key]);
     set([...addedKeys]);
     remove(...removedKeys);
-
-    prevDepsRef.current = deps;
   }
 
   return useMemo<{ current: Record<string, any> } & RecordMethods<V>>(
