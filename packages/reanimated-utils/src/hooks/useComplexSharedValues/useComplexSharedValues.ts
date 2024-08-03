@@ -2,7 +2,7 @@
 /* eslint-disable no-redeclare */
 
 import { isEqual } from 'lodash-es';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 import type {
   ComplexSharedValuesReturnType,
@@ -37,16 +37,17 @@ export function useComplexSharedValues<V>(
 ): ComplexSharedValuesReturnType<V> {
   const schemaRef = useRef<ComplexSharedValuesSchema<V>>();
 
-  if (schema !== schemaRef.current) {
-    const newSchema = getSchema(schema);
-    if (schemaRef.current === undefined) {
-      schemaRef.current = newSchema;
-    } else if (!isEqual(schemaRef.current, newSchema)) {
+  if (!schemaRef.current) {
+    schemaRef.current = getSchema(schema);
+  }
+
+  useEffect(() => {
+    if (!isEqual(schemaRef.current, getSchema(schema))) {
       throw new Error(
         '[reanimated-utils] Changing schema on the fly is not supported'
       );
     }
-  }
+  }, [schema]);
 
   const currentSchema = schemaRef.current;
 
