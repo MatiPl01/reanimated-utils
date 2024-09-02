@@ -3686,9 +3686,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/react-native@npm:^12.5.1":
-  version: 12.5.1
-  resolution: "@testing-library/react-native@npm:12.5.1"
+"@testing-library/react-native@npm:^12.6.1":
+  version: 12.6.1
+  resolution: "@testing-library/react-native@npm:12.6.1"
   dependencies:
     jest-matcher-utils: "npm:^29.7.0"
     pretty-format: "npm:^29.7.0"
@@ -3701,7 +3701,7 @@ __metadata:
   peerDependenciesMeta:
     jest:
       optional: true
-  checksum: 10c0/e224c033ca2361992cd8eeb367074ed281099471902d18f9760257e694fada3ca64077f2a47574986180852283f46e84c38ce580c2a49d07678c0a1a5fcc3274
+  checksum: 10c0/e028e39ca4ad6915c3a9699f479aff582328e252243009d313264dbb1eac8f4b7721b786ea0aed59b17939c8639e0addd18e08ee628900ff65a30b41c6ba0919
   languageName: node
   linkType: hard
 
@@ -7126,7 +7126,7 @@ __metadata:
     "@react-native/babel-preset": "npm:^0.74.85"
     "@react-native/metro-config": "npm:^0.74.85"
     "@testing-library/react-hooks": "npm:^8.0.1"
-    "@testing-library/react-native": "npm:^12.5.1"
+    "@testing-library/react-native": "npm:^12.6.1"
     "@types/react": "npm:^18.3.3"
     "@types/react-test-renderer": "npm:^18.3.0"
     babel-plugin-module-resolver: "npm:^5.0.2"
@@ -13378,7 +13378,7 @@ __metadata:
     "@semantic-release/npm": "npm:^12.0.1"
     "@semantic-release/release-notes-generator": "npm:^14.0.1"
     "@testing-library/react-hooks": "npm:^8.0.1"
-    "@testing-library/react-native": "npm:^12.5.1"
+    "@testing-library/react-native": "npm:^12.6.1"
     "@types/lodash-es": "npm:^4"
     "@types/react": "npm:^18.3.3"
     "@types/react-test-renderer": "npm:^18.3.0"
